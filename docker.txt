@@ -1,0 +1,36 @@
+
+C:\Users\mishr>docker images
+                                                                                                    i Info →   U  In Use
+IMAGE   ID             DISK USAGE   CONTENT SIZE   EXTRA
+
+C:\Users\mishr>docker run -e MY_NAME=John httpd env
+Unable to find image 'httpd:latest' locally
+latest: Pulling from library/httpd
+09625190bc81: Pull complete
+ec781dee3f47: Pull complete
+5184cf4f524b: Pull complete
+4f4fb700ef54: Pull complete
+a1897530540b: Pull complete
+753dca1c3a38: Pull complete
+512f7c550d54: Download complete
+7a18bfe8c86e: Download complete
+Digest: sha256:331548c5249bdeced0f048bc2fb8c6b6427d2ec6508bed9c1fec6c57d0b27a60
+Status: Downloaded newer image for httpd:latest
+PATH=/usr/local/apache2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=a3780f2ff84e
+MY_NAME=John
+HTTPD_PREFIX=/usr/local/apache2
+HTTPD_VERSION=2.4.66
+HTTPD_SHA256=94d7ff2b42acbb828e870ba29e4cbad48e558a79c623ad3596e4116efcfea25a
+HTTPD_PATCHES=
+HOME=/root
+
+C:\Users\mishr>docker run -it -e MY_NAME=Raj ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+817807f3c64e: Pull complete
+e4a1e8de092c: Download complete
+Digest: sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c
+Status: Downloaded newer image for ubuntu:latest
+root@1d9d1319aa46:/#  echo $MY_NAME
+Raj
