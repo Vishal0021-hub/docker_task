@@ -1,0 +1,45 @@
+PS C:\Users\mishr> docker pull mongodb
+Using default tag: latest
+Error response from daemon: pull access denied for mongodb, repository does not exist or may require 'docker login'
+PS C:\Users\mishr> docker pull mongodb
+Using default tag: latest
+Error response from daemon: pull access denied for mongodb, repository does not exist or may require 'docker login'
+PS C:\Users\mishr> docker pull mongo
+Using default tag: latest
+latest: Pulling from library/mongo
+2a1aa97b40be: Pull complete
+689b91d88a0f: Pull complete
+db782b49bd71: Pull complete
+cd5dd782e823: Pull complete
+66e4666e3305: Pull complete 
+5283059b6331: Pull complete
+b286261d1310: Pull complete
+a7231d1eab25: Pull complete
+2910318e8b46: Download complete
+0f8e5d773ed9: Download complete
+Digest: sha256:f071cbf97a6e52fb7f07ce9ca5d862ad79876bf0eba9ba97758337d740449638
+Status: Downloaded newer image for mongo:latest
+docker.io/library/mongo:latest
+PS C:\Users\mishr> docker run -d DB-app -p 80:8082 mongo
+docker: invalid reference format: repository name (library/DB-app) must be lowercase
+
+Run 'docker run --help' for more information
+PS C:\Users\mishr> docker run -d --name DB-app -p 80:8082 mongo
+d1ad4ee1ad0e6215b2cc9783c05c0e09786f8f20e36a6631e88373de18827c78
+PS C:\Users\mishr> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+d1ad4ee1ad0e   mongo     "docker-entrypoint.s…"   9 seconds ago   Up 7 seconds   0.0.0.0:80->8082/tcp, [::]:80->8082/tcp   DB-app
+PS C:\Users\mishr> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                     PORTS                                     NAMES
+d1ad4ee1ad0e   mongo     "docker-entrypoint.s…"   15 seconds ago   Up 13 seconds              0.0.0.0:80->8082/tcp, [::]:80->8082/tcp   DB-app  
+5da0b9db1814   ubuntu    "printenv DB_PASS"       6 days ago       Exited (0) 6 days ago                                                interesting_dijkstra
+5137b9f3ee08   nginx     "/docker-entrypoint.…"   6 days ago       Exited (0) 6 days ago                                                jolly_williams
+5188478e64b0   ubuntu    "/bin/bash"              7 days ago       Exited (130) 7 days ago                                              myubuntu
+535b0ebf3e9c   ubuntu    "/bin/bash"              7 days ago       Exited (0) 7 days ago                                                sleepy_gates
+e9d2d9029f78   mysql     "docker-entrypoint.s…"   11 days ago      Exited (137) 11 days ago                                             mysql-container
+fea183e6a2c7   nginx     "/docker-entrypoint.…"   11 days ago      Exited (0) 11 days ago                                               sweet_nightingale
+PS C:\Users\mishr> docker stop DB-app
+DB-app
+PS C:\Users\mishr> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\mishr> 
