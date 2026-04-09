@@ -1,0 +1,44 @@
+DOCKER: KART'S MASTER CHEAT SHEET (EXAM READY)
+============================================
+
+Theoretical Stuff (The "Why")
+------------------------------
+- Namespaces: ISOALTION (seeing).
+- Cgroups: LIMITS (using).
+- Immutability: Images don't change.
+- UnionFS: Layering system for storage.
+
+Image Cmds
+----------
+docker build -t [tag] .    - Make image from file
+docker images              - List my local images
+docker pull [img]          - Download from Hub
+docker rmi [id]            - Delete image
+docker tag [old] [new]     - Rename/Version image
+
+Container Cmds
+--------------
+docker run -it [img] bash  - Create and enter
+docker run -d [img]        - Run in background
+docker ps                  - What's running?
+docker ps -a               - Everything (stopped too)
+docker stop [id]           - Graceful exit
+docker rm [id]             - Delete it
+docker exec -it [id] bash  - Enter a running one
+docker logs [id]           - See why it failed
+
+Monitoring & Tools
+------------------
+docker info                - System health check
+docker stats               - Live CPU/RAM usage
+docker inspect [id]        - Deep JSON info (IP address etc)
+docker top [id]            - List processes in container
+docker system prune        - CLEAN EVERYTHING (DANGER)
+
+Alternatives (Mention these for extra marks)
+---------------------------------------------
+- CLI: Podman (mostly same but rootless/daemonless)
+- Registry: Quay.io, Azure ACR
+- Inspecting: Skopeo
+
+*Hint: If asked about isolation, always mention Namespaces (Visibility) vs Control Groups (Resource Management).*
