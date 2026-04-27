@@ -1,0 +1,30 @@
+
+Intro to Docker stuff
+
+Whats the deal with Containers?
+Basically we used to have the "it works on my machine" nightmare. One person has java 8, other has java 17... everything breaks. 
+
+1. The Apartment Cloud (aka Virtualization / VMs)
+Think of a huge building where every apartment has its own everything. Own walls, own pipes, own rules. 
+- You want to run a small app? You gotta bring a whole Operating System (Guest OS) with it. 
+- It’s too heavy and takes forever to boot up.
+- Uses a Hypervisor to manage these "apartments".
+
+2. The Modern Way (Containerization)
+Now imagine sharing the base building but having your own furniture and stuff.
+- Containers share the Host OS Kernel.
+- No need to carry a whole OS for every app.
+- Super fast (boots in seconds).
+
+Why use it?
+It wraps everything (code, libs, tools) into one box. If it works in the container on my laptop, it’ll work on the server. Period.
+
+Important Word: Immutability.
+Basically means: once you build it, you don't touch it. If you need a change, just build a new version. Don't fix it while it's running.
+
+Command basic:
+- docker --version (just checking if its there)
+- docker info (shows if any containers are running, memory stuff etc.)
+
+*Teacher mentioned: Docker is like a standardized shipping container for code.* 
+*Handy alt: Podman (mostly same as docker but handles rootless stuff better).*
