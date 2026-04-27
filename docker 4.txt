@@ -1,0 +1,239 @@
+PS C:\Users\mishr> dokcer build -t myapp:v1 .
+dokcer : The term 'dokcer' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the 
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ dokcer build -t myapp:v1 .
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (dokcer:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\mishr> docker build -t myapp:v1 .
+[+] Building 0.3s (1/1) FINISHED                                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                       0.1s
+ => => transferring dockerfile: 2B                                                                                                         0.0s 
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+PS C:\Users\mishr> docker images
+i Info →   U  In Use
+IMAGEIDDISK USAGE   CONTENT SIZE   EXTRA
+custom-nginx:v1   b9f40ae892f9       92.6MB           26MB    U 
+httpd:latest      331548c5249b        177MB         47.6MB    U 
+mongo:latest      f071cbf97a6e        1.3GB          341MB    U 
+mysql:latest      24e450bbd24f       1.27GB          283MB    U 
+nginx:latest      7150b3a39203        240MB         65.8MB    U 
+registry:2        a3d8aaa63ed8       37.4MB         10.3MB    U 
+ubuntu:latest     186072bba1b2        119MB         31.7MB    U 
+PS C:\Users\mishr> ^C
+PS C:\Users\mishr>docker build -t myapp:v1  
+ERROR: docker: 'docker buildx build' requires 1 argument
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Run 'docker buildx build --help' for more information
+PS C:\Users\mishr> cd Documents
+PS C:\Users\mishr\Documents> cd Github
+PS C:\Users\mishr\Documents\Github> cd nginx-app
+cd : Cannot find path 'C:\Users\mishr\Documents\Github\nginx-app' because it does not exist.
+At line:1 char:1
++ cd nginx-app
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\mishr\...ithub\nginx-app:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\mishr\Documents\Github>cd ngnix-app
+PS C:\Users\mishr\Documents\Github\ngnix-app> docker build -t myapp:v1 .
+[+] Building 1.1s (7/7) FINISHED                                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                       0.1s
+ => => transferring dockerfile: 79B                                                                                                        0.0s 
+ => [internal] load metadata for docker.io/library/nginx:latest                                                                            0.1s 
+ => [internal] load .dockerignore                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                            0.0s 
+ => [internal] load build context                                                                                                          0.0s 
+ => => transferring context: 138B                                                                                                          0.0s 
+ => [1/2] FROM docker.io/library/nginx:latest@sha256:7150b3a39203cb5bee612ff4a9d18774f8c7caf6399d6e8985e97e28eb751c18                      0.2s 
+ => => resolve docker.io/library/nginx:latest@sha256:7150b3a39203cb5bee612ff4a9d18774f8c7caf6399d6e8985e97e28eb751c18                      0.1s 
+ => [2/2] COPY . /usr/share/nginx/html                                                                                                     0.1s
+ => exporting to image                                                                                                                     0.4s 
+ => => exporting layers                                                                                                                    0.1s 
+ => => exporting manifest sha256:d38cf291370e45148d0dd2b18ac8c67a9b839ae76233b6a3bf03496752faa63f                                          0.0s 
+ => => exporting config sha256:a8395f3c3dc4c83f819b0fb495bf33fa7f77eab95ed7eb7d1eebab49e9f891e9                                            0.0s 
+ => => exporting attestation manifest sha256:ed0ff0b2bac6dc2431a6c1e63941b493dd76b323d0552c9d46be5cb820354905                              0.1s 
+ => => exporting manifest list sha256:760d2cbd08f1ff3eda6fbfe2426b244c93ecd47ba6ba5cad3284474a08ceabbb                                     0.0s 
+ => => naming to docker.io/library/myapp:v1                                                                                                0.0s 
+ => => unpacking to docker.io/library/myapp:v1                                                                                             0.1s 
+PS C:\Users\mishr\Documents\Github\ngnix-app> docker images
+i Info →   U  In Use
+IMAGEIDDISK USAGE   CONTENT SIZE   EXTRA
+custom-nginx:v1   b9f40ae892f9       92.6MB           26MB    U 
+httpd:latest      331548c5249b        177MB         47.6MB    U 
+mongo:latest      f071cbf97a6e        1.3GB          341MB    U 
+myapp:v1          760d2cbd08f1        237MB           63MB
+mysql:latest      24e450bbd24f       1.27GB          283MB    U 
+nginx:latest      7150b3a39203        240MB         65.8MB    U 
+registry:2        a3d8aaa63ed8       37.4MB         10.3MB    U 
+ubuntu:latest     186072bba1b2        119MB         31.7MB    U 
+PS C:\Users\mishr\Documents\Github\ngnix-app> docker tag myapp:v1 localhost:5000/myapp:v1
+PS C:\Users\mishr\Documents\Github\ngnix-app> cd ...
+cd : An object at the specified path C:\Users\mishr\Documents\Github\ngnix-app\... does not exist.
+At line:1 char:1
++ cd ...
++ ~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\mishr\Documents\Github\ngnix-app>cd ..
+PS C:\Users\mishr\Documents\Github> cd ..
+PS C:\Users\mishr\Documents>cd ..
+PS C:\Users\mishr> docker push localhost:5000/myapp:v1
+The push refers to repository [localhost:5000/myapp]
+5e815e07e569: Pushed
+3189680c601f: Pushed
+bb3d0aa29654: Pushed
+587e3d84dbb5: Pushed
+9a022ea2d217: Pushed
+6d52719cb9a7: Pushed
+cde7a05ae428: Pushed
+ec781dee3f47: Pushed
+510ddf6557d6: Pushed
+v1: digest: sha256:760d2cbd08f1ff3eda6fbfe2426b244c93ecd47ba6ba5cad3284474a08ceabbb size: 856
+PS C:\Users\mishr> curl http://localhost:5000/v2/
+
+Security Warning: Script Execution Risk                                                                                                         Invoke-WebRequest parses the content of the web page. Script code in the web page might be run when the page is parsed.                               RECOMMENDED ACTION:                                                                                                                             Use the -UseBasicParsing switch to avoid script code execution.                                                                           
+
+      Do you want to continue?
+
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):Y
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {}
+RawContent        : HTTP/1.1 200 OK
+                    Docker-Distribution-Api-Version: registry/2.0
+                    X-Content-Type-Options: nosniff
+                    Content-Length: 2
+                    Content-Type: application/json; charset=utf-8
+                    Date: Mon, 27 Apr 2026 18:33:34 GMT
+                    ...
+Forms             : {}
+Headers           : {[Docker-Distribution-Api-Version, registry/2.0], [X-Content-Type-Options, nosniff], [Content-Length, 2], [Content-Type,    
+                    application/json; charset=utf-8]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 2
+
+
+
+PS C:\Users\mishr>curl http://localhost:5000/v2/catlog
+curl : 404 page not found
+At line:1 char:1
++ curl http://localhost:5000/v2/catlog
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+PS C:\Users\mishr> curl http://localhost:5000/v2/_catlog
+curl : 404 page not found
+At line:1 char:1
++ curl http://localhost:5000/v2/_catlog
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+PS C:\Users\mishr>curl http://localhost:5000/v2/_catalog
+
+Security Warning: Script Execution Risk                                                                                                         Invoke-WebRequest parses the content of the web page. Script code in the web page might be run when the page is parsed.                               RECOMMENDED ACTION:                                                                                                                             Use the -UseBasicParsing switch to avoid script code execution.                                                                           
+
+      Do you want to continue?
+
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):Y
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"repositories":["myapp"]}
+
+RawContent        : HTTP/1.1 200 OK
+                    Docker-Distribution-Api-Version: registry/2.0
+                    X-Content-Type-Options: nosniff
+                    Content-Length: 27
+                    Content-Type: application/json; charset=utf-8
+                    Date: Mon, 27 Apr 2026 18:37:12 GMT...
+Forms             : {}
+Headers           : {[Docker-Distribution-Api-Version, registry/2.0], [X-Content-Type-Options, nosniff], [Content-Length, 27], [Content-Type,   
+                    application/json; charset=utf-8]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 27
+
+
+
+PS C:\Users\mishr>docker run -d --name host-container --network host localhost:5000/myapp:v1
+cbcc484b234a6bc37fea8b6d8bc9d87b1467ac56bc3f09cc4d717721221147e2
+PS C:\Users\mishr> docker images
+i Info →   U  In Use
+IMAGEIDDISK USAGE   CONTENT SIZE   EXTRA
+custom-nginx:v1           b9f40ae892f9       92.6MB           26MB    U 
+httpd:latest              331548c5249b        177MB         47.6MB    U 
+localhost:5000/myapp:v1   760d2cbd08f1        237MB           63MB    U 
+mongo:latest              f071cbf97a6e        1.3GB          341MB    U 
+myapp:v1                  760d2cbd08f1        237MB           63MB    U 
+mysql:latest              24e450bbd24f       1.27GB          283MB    U 
+nginx:latest              7150b3a39203        240MB         65.8MB    U 
+registry:2                a3d8aaa63ed8       37.4MB         10.3MB    U 
+ubuntu:latest             186072bba1b2        119MB         31.7MB    U 
+PS C:\Users\mishr> docker rmi 760d2cbd08f1
+Error response from daemon: conflict: unable to delete 760d2cbd08f1 (cannot be forced) - image is being used by running container cbcc484b234a
+PS C:\Users\mishr> docerk stop myapp
+docerk : The term 'docerk' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the 
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docerk stop myapp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docerk:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\mishr> docker stop myapp
+Error response from daemon: No such container: myapp
+PS C:\Users\mishr> docker stop cbcc484b234a6bc37fea8b6d8bc9d87b1467ac56bc3f09cc4d717721221147e2
+cbcc484b234a6bc37fea8b6d8bc9d87b1467ac56bc3f09cc4d717721221147e2
+PS C:\Users\mishr> docker rmi 760d2cbd08f1
+Error response from daemon: conflict: unable to delete 760d2cbd08f1 (must be forced) - image is being used by stopped container cbcc484b234a    
+PS C:\Users\mishr> docker rmi 760d2cbd08f1
+Error response from daemon: conflict: unable to delete 760d2cbd08f1 (must be forced) - image is being used by stopped container cbcc484b234a    
+PS C:\Users\mishr> docker rmi localhost:5000/myapp/v:1
+Error response from daemon: No such image: localhost:5000/myapp/v:1
+PS C:\Users\mishr> docker images
+i Info →   U  In Use
+IMAGEIDDISK USAGE   CONTENT SIZE   EXTRA
+custom-nginx:v1           b9f40ae892f9       92.6MB           26MB    U 
+httpd:latest              331548c5249b        177MB         47.6MB    U 
+localhost:5000/myapp:v1   760d2cbd08f1        237MB           63MB    U 
+mongo:latest              f071cbf97a6e        1.3GB          341MB    U 
+myapp:v1                  760d2cbd08f1        237MB           63MB    U 
+mysql:latest              24e450bbd24f       1.27GB          283MB    U 
+nginx:latest              7150b3a39203        240MB         65.8MB    U 
+registry:2                a3d8aaa63ed8       37.4MB         10.3MB    U 
+ubuntu:latest             186072bba1b2        119MB         31.7MB    U 
+PS C:\Users\mishr> docker ps
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+fcb532bf6773   registry:2   "/entrypoint.sh /etc…"   26 minutes ago   Up 26 minutes   0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp   private-registry
+PS C:\Users\mishr> docker pull localhost:5000/myapp:v1
+v1: Pulling from myapp
+Digest: sha256:760d2cbd08f1ff3eda6fbfe2426b244c93ecd47ba6ba5cad3284474a08ceabbb
+Status: Image is up to date for localhost:5000/myapp:v1
+localhost:5000/myapp:v1
+PS C:\Users\mishr> docker images
+i Info →   U  In Use
+IMAGEIDDISK USAGE   CONTENT SIZE   EXTRA
+custom-nginx:v1           b9f40ae892f9       92.6MB           26MB    U 
+httpd:latest              331548c5249b        177MB         47.6MB    U 
+localhost:5000/myapp:v1   760d2cbd08f1        237MB           63MB    U 
+mongo:latest              f071cbf97a6e        1.3GB          341MB    U 
+myapp:v1                  760d2cbd08f1        237MB           63MB    U 
+mysql:latest              24e450bbd24f       1.27GB          283MB    U 
+nginx:latest              7150b3a39203        240MB         65.8MB    U 
+registry:2                a3d8aaa63ed8       37.4MB         10.3MB    U 
+ubuntu:latest             186072bba1b2        119MB         31.7MB    U 
+PS C:\Users\mishr> 
