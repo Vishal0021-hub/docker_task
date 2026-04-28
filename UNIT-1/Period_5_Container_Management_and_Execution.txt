@@ -1,0 +1,26 @@
+INT332 L5 - Period 5
+Management & Execution (Dealing with existing containers)
+
+What is the status of my container?
+- It could be: Created, Running, Paused, or Exited. 
+- Use 'docker ps' for the running stuff.
+- Use 'docker ps -a' for ALL of them (even the ones that crashed). 
+
+Entering a running container:
+If I want to run a bash shell inside a container that's already up, I use:
+'docker exec -it [id] bash'
+- Why? B/c sometimes I gotta check the logs or debug files from the inside. 
+
+Observing:
+- 'docker logs [id]': Shows the app's output. Super useful when stuff fails.
+- 'docker rm [id]': Deletes the container. 
+
+Pro-tip: 
+Use '--rm' when starting a container so it cleans itself up when it stops. Saves my disk space from getting filled with random garbage containers.
+
+Checked cmds:
+- docker rm -f (force remove a running container)
+- docker stop (the slow way to shut down)
+
+Wait, what about Podman?
+Podman uses mostly the SAME commands as docker but it's "daemonless" and "rootless" which teacher says is better for security.

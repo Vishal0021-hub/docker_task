@@ -1,0 +1,29 @@
+INT332 L4 - Period 4
+Container Lifecycle (Run, Stop, etc)
+
+Difference btw Image vs Container:
+Image = Recipe
+Container = The Cake 
+
+What happens when I do 'docker run'?
+It’s actually 3 steps in one:
+1. Pull (gets the image if you don't have it)
+2. Create (makes the container container but doesn't start it)
+3. Start (starts the process)
+
+Flags I gotta remember:
+- -it: (interactive + tty) basically lets me talk to the container inside.
+- -d: (detached) runs in the background. Like a ghost process.
+- --name: so I don't get those weird random names like 'distracted_einstein'.
+
+Lifecycle cmds:
+- docker run [img]: Pull+Create+Start.
+- docker stop: Graceful exit (SIGTERM). Gives it time to finish work.
+- docker kill: Just kills it instantly (SIGKILL). Use only if it's stuck.
+
+*Self Note:* 
+Thin writable layer is where all my new files go in a container. If I delete the container, I lose those files unless I use Volumes (check period 5 for that).
+
+Key Question: What signal does 'stop' send?
+Ans: SIGTERM. 
+'kill' sends SIGKILL.

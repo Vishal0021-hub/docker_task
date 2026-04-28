@@ -1,0 +1,25 @@
+INT332 L6 - Period 6
+"Kernel Magic" - Theoretical backbone
+
+The two things that make the magic happen:
+
+1. NAMESPACES (the Isolation thing)
+This controls what a container CAN SEE.
+- PID Namespace: isolating process IDs. The container "thinks" it's the only thing running.
+- Network Namespace: its own IP, ports, etc.
+- Mount Namespace: its own filesystem view.
+- UTS Namespace: its own hostname.
+
+2. CGROUPS (the Limits thing)
+This controls how many resources it CAN USE.
+- Limits: CPU usage, Memory (RAM), Disk I/O.
+- Basically prevents one container from hogging all the RAM and crashing the whole host.
+
+Wait, why does this matter for exams?
+If they ask what isolation is, say Namespaces. If they ask what resource management is, say Control Groups (cgroups).
+
+Monitoring:
+'docker stats' - This shows live data on how much CPU/RAM each container is eating. It's the practical way to see cgroups working.
+
+Self note for laptop:
+Since I'm on Windows, it uses WSL2 (Windows Subsystem for Linux) to provide these kernel features because Windows doesn't actually have these native namespaces yet.

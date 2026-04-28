@@ -1,0 +1,31 @@
+INT332 L2 - Period 2 Notes
+Docker Architecture (how it actually works)
+
+So Docker follows this Client-Server thing. 
+
+The Parts:
+- Docker Client: This is the CLI. When I type 'docker run', the client sends that request to the daemon.
+- Docker Host: The literal machine where the engine is running.
+- Docker Daemon (dockerd): The brain. It does the heavy lifting (building, running containers). It uses a REST API to talk to the client.
+
+Core components:
+1. REST API: The Bridge.
+2. CLI: The tool we use.
+3. Daemon: The persistent process running in the background.
+
+Wait, what are Docker Objects?
+- Images (blueprints)
+- Containers (the active instances)
+- Networks (how they talk)
+- Volumes (where data stays)
+
+Exam tip on this:
+Daemon handles the storage, networking, and the containers themselves. The client is just the messenger.
+If the daemon is down, the client can't do anything. 
+
+Checked commands:
+- docker version (shows client AND server version)
+- docker info (the "health check" for the setup)
+
+Note: Most people use 'docker' but there's also 'containerd' which is lower level. 
+*Why does it matter?* If you're using Kubernetes, you might see containerd instead.

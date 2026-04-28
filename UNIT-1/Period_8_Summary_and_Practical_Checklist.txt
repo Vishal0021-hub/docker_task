@@ -1,0 +1,26 @@
+INT332 L8 - Period 8
+Ultimate Summary / Final Exam Prep
+
+Workflow of Docker:
+BUILD (Dockerfile) -> SHIP (Registry) -> RUN (Container)
+
+Troubleshooting Checklist:
+- App not working? Look at 'docker logs'.
+- Container crashing? Check the status with 'docker ps -a'.
+- Need more info? Use 'docker inspect [name]'. It gives a HUGE JSON output with IP, ports, etc.
+- Want to see what's happening inside? 'docker top [name]'.
+
+Maintenance:
+'docker system prune'
+DANGER: This wipes out all stopped containers, unsused networks, and dangling images. Only use if I'm running out of space!
+
+Big Questions for Exam:
+- Is a container a VM? NO.
+- Does it have its own OS? NO, it shares the host kernel.
+- Why is it secure? Namespaces and Cgroups isolate it.
+
+Final thought:
+Docker is just the start. If I end up doing multiple containers, I'll need Docker Compose. If I go big, I'll need Kubernetes. 
+
+GOOD LUCK. 
+(Check the Cheat Sheet for the quick cmds).

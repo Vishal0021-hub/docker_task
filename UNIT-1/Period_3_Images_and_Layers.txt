@@ -1,0 +1,26 @@
+INT332 L3 - Period 3
+Images & those Layer things
+
+What is an Image?
+It’s like a recipe but it’s read-only. You can’t edit an image once it’s built (Immutability again!).
+
+Layers (The coolest part):
+Docker builds images in layers. If you have a Dockerfile with 5 lines, you probably have 5 layers.
+- Why? B/c of Caching. 
+- If I change the last line and rebuild, Docker only rebuilds THAT layer. Saves so much time.
+- Uses Union File System (UnionFS) to stack them. Think of it like stacking transparencies on a projector.
+
+Storage:
+Images are stored in a read-only way. When you run a container, Docker adds a "thin writable layer" on top. 
+If the container dies, the image is still perfect.
+
+Practical cmds:
+- docker images (shows what i have downloaded)
+- docker rmi [id] (deletes the image storage pointers)
+
+*Random note from class:*
+Buildah is an alternative tool. You can build images WITHOUT even having the docker daemon running. Pretty cool if you're into security.
+
+Checklist for me:
+[ ] Do I know why layers are useful? (Caching!!!)
+[ ] Is the image writable? (NO. Only a container is.)

@@ -1,0 +1,25 @@
+INT332 L7 - Period 7
+Builds, Registries & Sharing
+
+Docker Hub = An "App Store" for developers. 
+
+Registry vs Repository:
+- Registry: The whole store (like Docker Hub or Quay.io).
+- Repository: The specific image folder (like 'ubuntu' or 'nginx').
+
+The Build Process (Making my own image):
+- Use 'docker build -t [myname/myimage] .'
+- The dot at the end means "current directory". 
+- Dockerfile instructions (FROM, RUN, CMD) create layers.
+
+Pushing & Pulling:
+- 'docker pull': Download an image.
+- 'docker tag': Giving my image a nickname/version.
+- 'docker push': Uploading to the hub so my teammates can use it.
+
+Alternates for registries:
+- Quay.io (RedHat stuff)
+- Azure ACR / Amazon ECR (for big companies)
+
+*Teacher's Tip:* 
+Be careful with the 'latest' tag. It's better to use specific versions like :v1.1 so you know exactly what's running.
