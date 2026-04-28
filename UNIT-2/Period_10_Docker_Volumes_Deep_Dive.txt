@@ -1,0 +1,26 @@
+INT332 Unit 2 - Period 10
+Docker Volumes (The "Right" way to store data)
+
+Why are Volumes better than Bind Mounts?
+1. Volumes are managed BY Docker. I don't need to know the exact path on my laptop.
+2. They work the same on Windows, Mac, and Linux.
+3. Docker handles the permissions for me.
+
+The Logic:
+Docker creates a special area on the host (usually `/var/lib/docker/volumes/` on Linux) and stores the data there. The container just sees it as a folder.
+
+Commands to know:
+- docker volume create [name]  <- Make a new bucket for data.
+- docker volume ls              <- List all the data buckets.
+- docker volume inspect [name] <- See where Docker is actually hiding the files.
+
+How to run with a Volume:
+`docker run -d -v my_data:/var/lib/mysql mysql`
+(Notice I didn't use a full path like 'C:/Users...', just the name 'my_data').
+
+Teacher's Tip:
+"If you care about your data in a production server, use a Volume. If you're just coding on your laptop, a Bind Mount is fine."
+
+Self-Check:
+Where does Docker store volumes? (Host filesystem, specifically in Docker's own area).
+Can multiple containers share one volume? (YES. Great for sharing logs or db data).

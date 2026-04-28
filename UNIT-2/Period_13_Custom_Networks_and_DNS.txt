@@ -1,0 +1,25 @@
+INT332 Unit 2 - Period 13
+Custom Networks & DNS (Talking by name)
+
+The default bridge is okay but it's like a room full of strangers with no name tags. You gotta ask for their phone number (their IP). 
+BUT... if you create a CUSTOM bridge network, Docker automatically adds a DNS resolver.
+
+The Magic of Custom Networks:
+1. Every container gets a name tag (`--name app1`).
+2. They can talk to each other using those names.
+3. No more IP address hunting!
+
+Commands:
+- docker network create [name]    <- Create your "private club".
+- docker run --network [name] ...  <- Join the club.
+
+Why does it work?
+DNS (Domain Name System). When 'container-a' wants to talk to 'container-b', Docker just resolves the name to the internal IP. 
+
+Exam Scenario:
+"You have a website and a database. How do you make them talk if the IP keeps changing?"
+Ans: Create a user-defined bridge network and run both containers on it. They can then use each other's names.
+
+Checklist:
+[ ] Does the default bridge network have DNS? (No).
+[ ] How do I create my own network? ('docker network create').

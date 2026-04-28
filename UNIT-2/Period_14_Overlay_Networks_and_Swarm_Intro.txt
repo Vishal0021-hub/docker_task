@@ -1,0 +1,24 @@
+INT332 Unit 2 - Period 14
+Overlay Networks & "Scale" stuff
+
+What if my app is so big it needs TWO servers? 
+- Bridge networks only work on one host.
+- OVERLAY networks work across multiple Docker Hosts.
+
+The Theory: 
+Docker creates a "tunnels" between the servers. To the containers, it feels like they are on the same local network, even if one is in Mumbai and the other in Pune. 
+- *Essential for Docker Swarm* (which is the built-in orchestration tool).
+
+Wait, what about Container Linking?
+In the old days (v1.x), we used the `--link` flag. 
+- Teacher said: "It's deprecated. Don't use it in new projects. Use User-Defined networks instead." 
+- *Possible exam trap:* They might ask about `--link`. Say it's legacy/deprecated.
+
+Key Network Drivers (Review):
+1. Bridge: Local comms.
+2. Host: Direct host networking.
+3. Overlay: Multi-host comms.
+4. None: Security/Isolation.
+
+*Self Note:* 
+Most real companies use Overlay with things like Kubernetes or Swarm.

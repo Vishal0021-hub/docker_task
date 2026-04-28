@@ -1,0 +1,26 @@
+INT332 Unit 2 - Period 12
+Networking Basics (How containers talk)
+
+By default, Docker is like a landlord that gives everyone their own private room (Isolation). But sometimes the rooms need a phone line (Network).
+
+The 3 Default Drivers:
+1. BRIDGE (default): 
+   - Every container gets its own private IP (like 172.17.0.x).
+   - They can talk to each other if they are on the same bridge.
+   - External world can't see them unless we "publish" a port (`-p 80:80`).
+
+2. HOST:
+   - Removes the "walls". The container uses the same network as my laptop.
+   - If the app is on port 80 in the container, it's on port 80 on my laptop too.
+   - FAST but less secure.
+
+3. NONE:
+   - Total isolation. No network, no internet, no nothing.
+   - Use for: secure processing where you don't want any outside data leak.
+
+Cmds:
+- 'docker network ls': see the networks.
+- 'docker inspect [container]': scroll down to find the 'IPAddress' field.
+
+*Wait!* 
+If I use the default Bridge, I have to talk to other containers using their IP addresses. That's annoying because IPs change. (Solution coming in Period 13: DNS).

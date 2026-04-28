@@ -1,0 +1,26 @@
+INT332 Unit 2 - Period 9
+Persistence & Bind Mounts (Keep my data safe!)
+
+Ok, so containers are "ephemeral". That’s a fancy word for saying: if the container dies, everything inside it is GONE. 
+If I'm running a database, that's a disaster. 
+
+The first way to save data: BIND MOUNTS.
+Basically, I take a folder on my actual laptop (the Host) and "mount" it into the container.
+- Command flag: `-v /my/laptop/folder:/app/data`
+- Why use this? 
+  * Good for development. If I change a file in my VS Code, the container sees it instantly.
+  * Sharing config files.
+
+Problem with Bind Mounts:
+They depend on the folder structure of the host. If I move my code, the 'docker run' command breaks. 
+
+Wait, what is the new way?
+The `--mount` flag. It’s more verbose but cleaner.
+`--mount type=bind,source=$(pwd),target=/app`
+
+Note to self:
+Bind mounts are "Old School" but still very common for local devs. For production, everyone says use Volumes (Period 10).
+
+Checklist:
+[ ] Can I explain why data is lost when a container is deleted?
+[ ] How do I map a host folder to a container?

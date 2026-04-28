@@ -1,0 +1,25 @@
+INT332 Unit 2 - Period 11
+Tmpfs & Storage Cleanup (Memory storage)
+
+What if I have sensitive data?
+Like a password or a secret key that I DON'T want written to the hard drive?
+Use: Tmpfs Mounts.
+- It lives in the RAM (System Memory).
+- If the container stops or host reboots, it's wiped out instantly.
+- Super fast because it never touches the disk.
+- *Only works on Linux containers!* (Good for exam question).
+
+Flag: `--tmpfs /path/in/container`
+
+Cleaning up the mess:
+My laptop is getting full of "Dangling" images and volumes I don't use anymore.
+- 'docker volume ls': See everything.
+- 'docker volume prune': The "Delete All Unused" button. (Use with caution!!).
+- 'docker system df': Shows how much disk space Docker is eating.
+
+Comparison for Exam:
+- Bind Mount: Best for Dev (Host dependent).
+- Volume: Best for Production (Docker managed).
+- Tmpfs: Best for Secrets (Memory only, temporary).
+
+*Self Note:* Always check 'docker system df' before a big build so I don't run out of space mid-way.

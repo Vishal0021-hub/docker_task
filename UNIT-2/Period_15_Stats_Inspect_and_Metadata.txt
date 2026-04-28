@@ -1,0 +1,25 @@
+INT332 Unit 2 - Period 15
+Stats, Inspect & Metadata (The Deep Dive)
+
+How do I know what's going on under the hood?
+
+1. THE INSPECTOR: 'docker inspect'
+If you want to find the IP address, Mount points, Port mappings, or literally ANY setting, this is the command.
+- Returns a MASSIVE JSON block.
+- Tip: Use 'grep' if you're on Linux or just scroll through carefully to find the NetworkSettings part.
+
+2. THE "TASK MANAGER": 'docker stats'
+Shows a live stream of:
+- CPU % (how much processing it's using).
+- Memory Usage (Is the container leaking RAM?).
+- Network I/O (How much data it's sending/receiving).
+- If your app is slow, run this and see if it's hitting the Cgroup limits.
+
+3. RESOURCE CLEANUP (Again):
+Periodic maintenance helps.
+- 'docker network prune': delete all unused networks.
+- 'docker volume prune': delete all unused volumes.
+
+Exam Tip:
+If a question asks "How do you find the configuration details of a container?", the answer is almost always 'docker inspect'.
+If it asks "How do you monitor performance in real-time?", it's 'docker stats'.

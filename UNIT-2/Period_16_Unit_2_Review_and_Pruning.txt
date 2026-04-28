@@ -1,0 +1,30 @@
+INT332 Unit 2 - Period 16
+Unit 2 Review & Exam Prep Summary
+
+We covered the "Foundation of Persistence and Connection". 
+
+Storage Summary:
+- No volumes? No data after the container dies.
+- Bind Mounts = Mapping my folders (Dev).
+- Volumes = Managed area by Docker (Prod).
+- Tmpfs = Keep it in RAM (Secure).
+
+Networking Summary:
+- Default bridge = No DNS (manual IPs).
+- Custom bridge = Auto DNS (easy comms).
+- Host = Fast but unshielded.
+- Overlay = Crossing Host boundaries.
+
+Final Exam Prep Checklist:
+[ ] Can I map a port? (`-p 8080:80`).
+[ ] Do I know the difference between 'prune' and 'rm'? ('prune' is bulk cleanup).
+[ ] Can I name the bridge, host, and overlay drivers?
+[ ] Why use user-defined networks? (Service Discovery/DNS).
+
+*One Last Thing:* 
+Always remember that you can "connect" a running container to another network on the fly using 'docker network connect [nw] [container]'. You don't always have to restart it!
+
+UNIT 2 DONE. 
+(Next unit usually starts with Docker Compose or Orchestration).
+Check out the Unit 2 Cheat Sheet for the quick look. 
+Good Luck!!!
